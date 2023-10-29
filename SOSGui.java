@@ -10,6 +10,8 @@ import javafx.scene.text.*;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.example.sosgui.GameLogic.*;
+
 class EditableButton extends Button {
 
     public static Boolean isUser1Turn = true;
@@ -30,6 +32,9 @@ class EditableButton extends Button {
                 setText(RadioButtons.getUser2Move());
                 currTurn.setText("Blue Player's Turn");
             }
+
+            checkWin(isUser1Turn, true);
+
             isUser1Turn = !isUser1Turn;
         });
     }
@@ -95,7 +100,6 @@ public class SOSGui extends Application {
         // Adds the game selections to a toggle group
         simpleGame.setToggleGroup(gameSelectTG);
         generalGame.setToggleGroup(gameSelectTG);
-
 
         // The box that houses the option for simple or general game
         HBox gameSelectBox = new HBox();
@@ -179,7 +183,6 @@ public class SOSGui extends Application {
         currTurnBox.setSpacing(10);
 
         AtomicInteger boardSize = new AtomicInteger(3);
-
 
         // Creates the board size variable
         boardSize = new AtomicInteger(3);
