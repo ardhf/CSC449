@@ -12,13 +12,13 @@ class GameLogicTest {
 
         assertFalse(GameLogic.CreateBoard(2, null, null));
         assertFalse(GameLogic.CreateBoard(11, null, null));
+    }
 
+    @Test
+    void checkWinCond(){
+        assertFalse(GameLogic.checkDraw());
 
-        /*assertAll(
-                () -> assertFalse(GameLogic.CreateBoard(2, null, null)),
-                () -> assertTrue(GameLogic.CreateBoard(3, null, null)),
-                () -> assertTrue(GameLogic.CreateBoard(10, null, null)),
-                () -> assertFalse(GameLogic.CreateBoard(11, null, null))
-        );*/
+        assertTrue(GameLogic.checkWin(false, true));
+        assertTrue(GameLogic.checkWin(false, false));
     }
 }
